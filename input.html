@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Love Calculator ❤️</title>
+</head>
+<body style="text-align:center; margin-top:100px;">
+
+<h2>❤️ Love Calculator ❤️</h2>
+
+<input id="name1" placeholder="तुझं नाव"><br><br>
+<input id="name2" placeholder="तिचं / त्याचं नाव"><br><br>
+
+<button onclick="send()">Calculate</button>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<script>
+  var firebaseConfig = {
+    // const firebaseConfig = {
+  apiKey: "AIzaSyDSq7nAAYjODgVJaxq4wg_mbA7bHIylK-Q",
+  authDomain: "love-calculator-8619f.firebaseapp.com",
+  databaseURL: "https://love-calculator-8619f-default-rtdb.firebaseio.com",
+  projectId: "love-calculator-8619f",
+  storageBucket: "love-calculator-8619f.firebasestorage.app",
+  messagingSenderId: "1013748783570",
+  appId: "1:1013748783570:web:0add9b4d7fff4e44e0500b"
+};
+  };
+  firebase.initializeApp(firebaseConfig);
+
+  function send() {
+    firebase.database().ref("data").set({
+      name1: name1.value,
+      name2: name2.value
+    });
+    alert("Calculating...");
+  }
+</script>
+
+</body>
+</html>
